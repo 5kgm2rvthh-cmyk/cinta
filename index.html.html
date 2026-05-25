@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Sayang 💖</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+font-family:Poppins,sans-serif;
+background:linear-gradient(135deg,#ffd6e7,#fff0f5);
+height:100vh;overflow:hidden;display:flex;justify-content:center;align-items:center;
+text-align:center;
+}
+.container{width:90%;max-width:420px;position:relative;z-index:2}
+.page{display:none;animation:fade .8s ease}
+.active{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.envelope,.half{font-size:110px;cursor:pointer;animation:bounce 1.5s infinite}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.photo{
+width:100%;border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,.2);margin:20px 0
+}
+.card{
+background:#fff;padding:25px;border-radius:25px;
+box-shadow:0 10px 30px rgba(0,0,0,.15)
+}
+.btn{
+margin-top:20px;border:none;background:#ff6699;color:#fff;
+padding:14px 24px;border-radius:30px;font-size:16px;cursor:pointer
+}
+.letter{text-align:left;max-height:60vh;overflow:auto}
+.letter h2{
+font-family:'Dancing Script',cursive;
+font-size:38px;color:#ff4d88;text-align:center;margin-bottom:15px
+}
+.music{
+display:inline-block;margin-top:20px;
+padding:12px 20px;background:#ff85a2;color:white;
+text-decoration:none;border-radius:30px
+}
+.heart{
+position:absolute;top:-30px;
+animation:fall linear forwards;
+}
+@keyframes fall{
+to{transform:translateY(110vh);opacity:0}
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="page active" id="p1">
+<div class="card">
+<h2>Pencet suratnya ya sayang 💌</h2><br>
+<div class="envelope" onclick="go(2)">💌</div>
+</div>
+</div>
+
+<div class="page" id="p2">
+<div class="card">
+<img src="foto-kita.jpg" class="photo" alt="foto kalian">
+<h2>Hai sayang, happy birthday again ya 🎂💖</h2>
+<p>Etss... klik lanjut dulu 😚</p>
+<button class="btn" onclick="go(3)">Lanjut</button>
+</div>
+</div>
+
+<div class="page" id="p3">
+<div class="card">
+<h2>Pencet suratnya dulu 😚</h2><br>
+<div class="half" onclick="go(4)">📖</div>
+<p>Buat lihat isi full text-nya 💌</p>
+</div>
+</div>
+
+<div class="page" id="p4">
+<div class="card letter">
+<h2>For U 💖</h2>
+<p>
+Haii sayang, this is ur day and i want to say something...<br><br>
+Jangan merasa ini adalah hari biasa ya, this is ur special day, dimana kamu di adakan oleh tuhan buat ketemu orang2 yg kamu sayang like ur familly dan pastinya i always with u 🤍<br><br>
+Makasi juga sama tuhan km ada di disini dan aku bisa jadi bagian kecil dalam hidupmu, semoga kamu merasa cukup ya, u are a special boy for me 💖<br><br>
+I hope ur life freely, joyfully, and peacefully. No one in the world deserves a bad life, including u.<br><br>
+Kalau suatu saat nanti kita gabisa bareng dengan usaha maupun tidak, inget semua hal baik, lucu, dan bahagia kita ya sebelum km bener bener mau ngelupain semuanya 🥹<br><br>
+Love u always 🤍<br>
+im so sory if i bad for u
+</p>
+
+<a class="music" target="_blank"
+href="https://www.youtube.com/results?search_query=if+the+world+was+ending">
+🎵 Play “If The World Was Ending”
+</a>
+</div>
+</div>
+
+</div>
+
+<script>
+function go(n){
+document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+document.getElementById('p'+n).classList.add('active');
+if(n===4){
+confetti({particleCount:180,spread:120});
+}
+}
+
+function hearts(){
+const h=document.createElement('div');
+h.className='heart';
+h.innerHTML='💖';
+h.style.left=Math.random()*100+'vw';
+h.style.fontSize=(Math.random()*20+15)+'px';
+h.style.animationDuration=(Math.random()*3+3)+'s';
+document.body.appendChild(h);
+setTimeout(()=>h.remove(),6000);
+}
+setInterval(hearts,300);
+</script>
+</body>
+</html>
